@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 // comment added
+// second commit added for merge
 
 class CartItem {
   final String id;
