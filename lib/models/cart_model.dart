@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// comment added
+
 class CartItem {
   final String id;
   final String image;
