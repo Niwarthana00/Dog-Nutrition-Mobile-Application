@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart'; // Import Firestore package
+import 'package:dog_food_app/controllers/cart_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'home_screen.dart';
 
 class PaymentDetailsScreen extends StatefulWidget {
@@ -10,7 +12,8 @@ class PaymentDetailsScreen extends StatefulWidget {
 class _PaymentDetailsScreenState extends State<PaymentDetailsScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _cardNumberController = TextEditingController();
-  final TextEditingController _cardHolderNameController = TextEditingController();
+  final TextEditingController _cardHolderNameController =
+      TextEditingController();
   final TextEditingController _expiryDateController = TextEditingController();
   final TextEditingController _cvvController = TextEditingController();
   bool _saveCardDetails = false;
@@ -93,17 +96,17 @@ class _PaymentDetailsScreenState extends State<PaymentDetailsScreen> {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: _saveAndConfirm,
+                  onPressed: () {
+                    _saveAndConfirm(context);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                     padding: EdgeInsets.symmetric(vertical: 16.0),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8.0),
                     ),
-                    textStyle: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold
-                    ),
+                    textStyle:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   child: Text(
                     'Pay now',
@@ -167,7 +170,7 @@ class _PaymentDetailsScreenState extends State<PaymentDetailsScreen> {
     );
   }
 
-  void _saveAndConfirm() async {
+  void _saveAndConfirm(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
       // Show loading indicator
       showDialog(
@@ -187,6 +190,8 @@ class _PaymentDetailsScreenState extends State<PaymentDetailsScreen> {
           'cvv': _cvvController.text,
           'save_card_details': _saveCardDetails,
         });
+
+        context.read<CartController>().clearCart();
 
         // Dismiss the loading indicator
         Navigator.of(context).pop();
