@@ -1,0 +1,83 @@
+name: dog_food_app
+description: 'A new Flutter project.'
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  carousel_slider: ^4.0.0
+  cupertino_icons: ^1.0.8
+  firebase_core: ^3.3.0
+  firebase_auth: ^5.1.4
+  cloud_firestore: ^5.2.1
+  firebase_storage: ^12.1.3
+  provider: ^6.0.0
+  intl: ^0.18.1
+  image_picker: ^1.1.2
+  shared_preferences: ^2.3.2
+  uuid: ^4.4.2
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/promo1.png
+    - assets/images/promo2.png
+    - assets/images/promo3.png
+    - assets/images/profile.png
+    - assets/images/google_logo.png
+    - assets/images/logo.png
+    - assets/images/splash.png
+    - assets/images/beagle1.png
+    - assets/images/Golden.png
+    - assets/images/poodle.png
+    - assets/images/labrador.png
+    - assets/images/german.png
+    - assets/images/bulldog.png
+    - assets/images/life.png
+    - assets/images/eat.png
+    - assets/images/care.png
+    - assets/images/lcare.png
+    - assets/images/leat.png
+    - assets/images/llife.png
+    - assets/articles.json
+    - assets/nutrition.json
+    - assets/about_me.json
+    - assets/images/blife.png
+    - assets/images/beat.png
+    - assets/images/bcare.png
+    - assets/images/glife.png
+    - assets/images/geat.png
+    - assets/images/gcare.png
+    - assets/images/plife.png
+    - assets/images/peat.png
+    - assets/images/pcare.png
+    - assets/images/hlife.jpg
+    - assets/images/heat.png
+    - assets/images/hcare.png
+    - assets/images/product1.png
+    - assets/images/product2.png
+    - assets/images/royal.png
+    - assets/images/hills.png
+    - assets/images/ori.png
+    - assets/images/ee.png
+    - assets/images/pedi.png
+    - assets/images/canidae.png
+    - assets/images/well.png
+    - assets/images/natu.png
+    - assets/images/blue.png
+    - assets/images/visa.png
+    - assets/images/mastercard.png
+    - assets/images/jcb.png
+    - assets/images/amex.png

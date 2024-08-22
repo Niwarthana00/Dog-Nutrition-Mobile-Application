@@ -1,0 +1,57 @@
+{
+  "Beagle": {
+    "Life Stages": "Beagles go through several life stages, including puppyhood, adolescence, adulthood, and senior years. Each stage has specific care requirements, from vaccinations and training during puppyhood to joint support and diet adjustments in the senior years.",
+    "Life Stages Photo": "assets/images/life.png",
+    "Dietary Requirements": "Beagles have specific dietary needs based on their life stage. Puppies need nutrient-rich food for growth, adults need balanced nutrition for energy, and seniors may require food with joint-supporting ingredients.",
+    "Dietary Requirements Photo": "assets/images/eat.png",
+    "Health Tips": "Regular check-ups, a balanced diet, and exercise are crucial for Beagle health. Be aware of common health issues such as obesity, hip dysplasia, and ear infections. Routine vet visits and proper grooming can help manage these issues.",
+    "Health Tips Photo": "assets/images/care.png"
+  },
+
+  "Labrador": {
+    "Life Stages": "Labradors also experience various life stages, including puppyhood, adolescence, adulthood, and senior years. Each stage requires specific care, from early training and socialization to managing age-related health issues.",
+    "Life Stages Photo": "assets/images/llife.png",
+    "Dietary Requirements": "Labradors need a balanced diet at all life stages. Puppies need high-quality puppy food, adults require maintenance diets, and seniors may benefit from diets with joint support and lower calories.",
+    "Dietary Requirements Photo": "assets/images/leat.png",
+    "Health Tips": "Labradors are prone to obesity and joint issues. Regular exercise, a healthy diet, and routine veterinary care are essential. Be mindful of hip dysplasia and eye conditions, and ensure regular check-ups.",
+    "Health Tips Photo": "assets/images/lcare.png"
+  },
+
+  "German Shephed": {
+    "Life Stages": "German Shepherds go through puppyhood, adolescence, adulthood, and senior years. Each stage requires different care approaches, from early socialization and training to managing age-related health concerns.",
+    "Life Stages Photo": "assets/images/glife.png",
+    "Dietary Requirements": "German Shepherds require a diet high in protein and fat during puppyhood, balanced nutrition for adults, and potentially joint-supporting nutrients as seniors.",
+    "Dietary Requirements Photo": "assets/images/geat.png",
+    "Health Tips": "German Shepherds are prone to hip dysplasia and bloat. Ensure regular vet visits, a proper diet, and ample exercise to maintain health. Be aware of potential genetic conditions.",
+    "Health Tips Photo": "assets/images/gcare.png"
+  },
+
+  "Poodle": {
+    "Life Stages": "Poodles experience puppyhood, adolescence, adulthood, and senior years, each with unique care needs. Socialization and training are crucial during the early years, while seniors may need joint support and dental care.",
+    "Life Stages Photo": "assets/images/plife.png",
+    "Dietary Requirements": "Poodles need high-quality puppy food during their growth phase, balanced nutrition as adults, and potentially specialized diets for seniors, including ingredients for joint health.",
+    "Dietary Requirements Photo": "assets/images/peat.png",
+    "Health Tips": "Poodles require regular grooming and dental care. Be aware of potential health issues such as hip dysplasia and allergies. Routine check-ups and a balanced diet are essential.",
+    "Health Tips Photo": "assets/images/pcare.png"
+  },
+
+  "Bulldog": {
+    "Life Stages": "Bulldogs go through puppyhood, adolescence, adulthood, and senior years. Special attention is needed for their unique health issues, including skin conditions and respiratory problems.",
+    "Life Stages Photo": "assets/images/blife.png",
+    "Dietary Requirements": "Bulldogs need a balanced diet to manage their weight and prevent obesity. Puppies require nutrient-rich food, while adults and seniors may need diets tailored to their health concerns.",
+    "Dietary Requirements Photo": "assets/images/beat.png",
+    "Health Tips": "Bulldogs are prone to breathing difficulties and skin infections. Regular vet visits, a proper diet, and maintaining a healthy weight are crucial for their well-being.",
+    "Health Tips Photo": "assets/images/bcare.png"
+  },
+
+  "Golden Retriever": {
+    "Life Stages": "Golden Retrievers experience puppyhood, adolescence, adulthood, and senior years. They require specific care due to their high energy levels and potential for joint issues in older age.",
+    "Life Stages Photo": "assets/images/hlife.jpg",
+    "Dietary Requirements": "Golden Retrievers need a diet high in protein and fat to support their energy levels. Puppies require balanced growth food, while seniors may need lower-calorie diets to manage weight.",
+    "Dietary Requirements Photo": "assets/images/heat.png",
+    "Health Tips": "Golden Retrievers require regular exercise and proper grooming. Be aware of potential health issues like hip dysplasia and eye conditions. Routine vet check-ups are important.",
+    "Health Tips Photo": "assets/images/hcare.png"
+  }
+
+}
+

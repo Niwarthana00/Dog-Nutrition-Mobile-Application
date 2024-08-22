@@ -1,0 +1,21 @@
+{
+  "Beagle": {
+    "Videos": [
+      {
+        "title": "Beagle Training Tips",
+        "description": "Learn effective training techniques for Beagles.",
+        "fileName": "beagle1.mp4"
+      },
+      {
+        "title": "Beagle Nutrition Guide",
+        "description": "Understanding the nutritional needs of Beagles.",
+        "fileName": "beagle1.mp4"
+      },
+      {
+        "title": "Beagle Exercise Routines",
+        "description": "Essential exercise routines for a healthy Beagle.",
+        "fileName": "beagle1.mp4"
+      }
+    ]
+  }
+}

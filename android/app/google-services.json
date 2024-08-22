@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "625905591384",
+    "project_id": "fireflutter-26958",
+    "storage_bucket": "fireflutter-26958.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:625905591384:android:28aef98b7f8417f9fe562d",
+        "android_client_info": {
+          "package_name": "com.example.dog_food_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK_7jD0NPugCi3357NG5e4Ndwt2qk_hCs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
