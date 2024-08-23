@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'login_screen.dart';
 
@@ -13,7 +14,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +165,8 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             label: Text('Register with Google'),
             style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.brown, backgroundColor: Colors.white,
+              foregroundColor: Colors.brown,
+              backgroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
                 side: BorderSide(color: Colors.brown),
@@ -224,15 +227,44 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  void _register() {
+  Future<void> _register() async {
     if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Registration successful')),
-      );
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
-      );
+      try {
+        final UserCredential userCredential =
+            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim(),
+        );
+
+        // Optionally, you can update the user profile with the full name
+        await userCredential.user
+            ?.updateDisplayName(_fullNameController.text.trim());
+
+        // Show a success message
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Registration successful')),
+        );
+
+        // Navigate to the login screen
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScreen()),
+        );
+      } on FirebaseAuthException catch (e) {
+        String message;
+        if (e.code == 'email-already-in-use') {
+          message = 'The account already exists for that email.';
+        } else if (e.code == 'weak-password') {
+          message = 'The password provided is too weak.';
+        } else {
+          message = 'An error occurred. Please try again.';
+        }
+
+        // Show error message
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(message)),
+        );
+      }
     }
   }
 
