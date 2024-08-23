@@ -1,6 +1,5 @@
 import 'dart:io';
-
-
+import 'package:shared_preferences/shared_preferences.dart'; // Import SharedPreferences
 import 'package:dog_food_app/screens/payment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -13,9 +12,33 @@ class AccountScreen extends StatefulWidget {
   _AccountScreenState createState() => _AccountScreenState();
 }
 
-class _AccountScreenState extends State<AccountScreen> with AutomaticKeepAliveClientMixin {
+class _AccountScreenState extends State<AccountScreen>
+    with AutomaticKeepAliveClientMixin {
   File? _image;
   final ImagePicker _picker = ImagePicker();
+
+  @override
+  void initState() {
+    super.initState();
+    _loadImage();
+  }
+
+  // Load the image path from SharedPreferences
+  Future<void> _loadImage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final imagePath = prefs.getString('profile_image_path');
+    if (imagePath != null) {
+      setState(() {
+        _image = File(imagePath);
+      });
+    }
+  }
+
+  // Save the image path to SharedPreferences
+  Future<void> _saveImagePath(String path) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('profile_image_path', path);
+  }
 
   Future<void> _pickImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
@@ -24,12 +47,14 @@ class _AccountScreenState extends State<AccountScreen> with AutomaticKeepAliveCl
       setState(() {
         _image = File(pickedFile.path);
       });
+      _saveImagePath(pickedFile.path); // Save the image path
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    super.build(context); // Must call super.build when using AutomaticKeepAliveClientMixin
+    super.build(
+        context); // Must call super.build when using AutomaticKeepAliveClientMixin
     return CommonScaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -58,7 +83,8 @@ class _AccountScreenState extends State<AccountScreen> with AutomaticKeepAliveCl
                   children: [
                     Text(
                       'Niwarthana',
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 4),
                     Text(
@@ -91,18 +117,25 @@ class _AccountScreenState extends State<AccountScreen> with AutomaticKeepAliveCl
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _buildOrderCard(Icons.payment, 'Unpaid', Color(0xFF616065)),
-                _buildOrderCard(Icons.local_shipping, 'Pending', Color(0xFF616065)),
-                _buildOrderCard(Icons.airport_shuttle, 'Shipped', Color(0xFF616065)),
-                _buildOrderCard(Icons.check_circle, 'Completed', Color(0xFF616065)),
+                _buildOrderCard(
+                    Icons.local_shipping, 'Pending', Color(0xFF616065)),
+                _buildOrderCard(
+                    Icons.airport_shuttle, 'Shipped', Color(0xFF616065)),
+                _buildOrderCard(
+                    Icons.check_circle, 'Completed', Color(0xFF616065)),
               ],
             ),
             SizedBox(height: 40), // Adjusted the space to move the menu down
             // Menu Options with 3D effect
-            _buildMenuOption(Icons.wallet_giftcard, 'My Wallet', Colors.blue, context),
-            _buildMenuOption(Icons.location_on, 'Shipping Address', Colors.green, context),
+            _buildMenuOption(
+                Icons.wallet_giftcard, 'My Wallet', Colors.blue, context),
+            _buildMenuOption(
+                Icons.location_on, 'Shipping Address', Colors.green, context),
             _buildMenuOption(Icons.favorite, 'Collect', Colors.red, context),
-            _buildMenuOption(Icons.discount, 'Discount Coupon', Colors.orange, context),
-            _buildMenuOption(Icons.support, 'Customer Service', Colors.purple, context),
+            _buildMenuOption(
+                Icons.discount, 'Discount Coupon', Colors.orange, context),
+            _buildMenuOption(
+                Icons.support, 'Customer Service', Colors.purple, context),
           ],
         ),
       ),
@@ -119,7 +152,8 @@ class _AccountScreenState extends State<AccountScreen> with AutomaticKeepAliveCl
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.only(bottom: 4), // Added margin between icon and text
+          margin:
+              EdgeInsets.only(bottom: 4), // Added margin between icon and text
           child: Text(
             count,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -140,7 +174,8 @@ class _AccountScreenState extends State<AccountScreen> with AutomaticKeepAliveCl
         children: [
           Card(
             elevation: 2,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Icon(icon, size: 36, color: color),
@@ -157,7 +192,8 @@ class _AccountScreenState extends State<AccountScreen> with AutomaticKeepAliveCl
   }
 
   // Widget to build the menu options with 3D effect
-  Widget _buildMenuOption(IconData icon, String label, Color color, BuildContext context) {
+  Widget _buildMenuOption(
+      IconData icon, String label, Color color, BuildContext context) {
     return GestureDetector(
       onTap: () {
         // Handle menu option tap
